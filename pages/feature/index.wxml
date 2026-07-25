@@ -247,13 +247,13 @@
       <view class="server-settings-head">
         <view>
           <text>数据服务器</text>
-          <text>开发者工具默认使用本机地址</text>
+          <text>默认连接已部署的 HTTPS 服务</text>
         </view>
         <text class="server-state {{serverStatus === '连接正常' ? 'online' : ''}}">{{serverStatus}}</text>
       </view>
-      <input value="{{serverUrl}}" bindinput="inputServerUrl" placeholder="http://127.0.0.1:3100" />
+      <input value="{{serverUrl}}" bindinput="inputServerUrl" placeholder="https://fitspace-test-lizhongquan.sabina-tabarez257.chatgpt.site" />
       <button class="primary-btn" bindtap="saveServerUrl">保存并测试连接</button>
-      <view class="server-tip">真机调试请改成电脑的局域网 IP，并确保手机和电脑处于同一网络。</view>
+      <view class="server-tip">微信公众平台 request 合法域名请填写上方 HTTPS 域名，不要附加接口路径。</view>
     </view>
     <view class="settings-list card">
       <view><text>当前版本</text><text>FitSpace Demo 1.0.0</text></view>

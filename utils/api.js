@@ -1,5 +1,5 @@
-const DEFAULT_BASE_URL = "http://127.0.0.1:3100";
-const SERVER_URL_KEY = "fitspace_server_url";
+const DEFAULT_BASE_URL = "https://fitspace-test-lizhongquan.sabina-tabarez257.chatgpt.site";
+const SERVER_URL_KEY = "fitspace_server_url_v2";
 
 function getBaseUrl() {
   if (typeof wx === "undefined") return DEFAULT_BASE_URL;

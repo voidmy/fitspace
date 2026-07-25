@@ -56,21 +56,21 @@ JSON 写入采用临时文件替换，避免写入中断时产生半个 JSON 文
 3. 确认 `project.config.json` 中的 `appid` 是你的小程序 AppID。
 4. 导入后点击「编译」即可。
 
-开发者工具模拟器默认连接：
+小程序默认连接已部署的 HTTPS 测试服务：
 
 ```text
-http://127.0.0.1:3100
+https://fitspace-test-lizhongquan.sabina-tabarez257.chatgpt.site
 ```
 
 可在小程序「我的 → 右上角设置」中修改并测试服务器地址。
 
-真机调试时，`127.0.0.1` 指向手机自身，需要改为电脑的局域网 IP，例如当前网络下：
+微信公众平台的 request 合法域名填写：
 
 ```text
-http://172.16.10.5:3100
+https://fitspace-test-lizhongquan.sabina-tabarez257.chatgpt.site
 ```
 
-手机与电脑需连接同一网络。正式发布必须使用 HTTPS，并在微信公众平台配置合法 request 域名。
+合法域名只填写协议和域名，不要附加 `/api` 等接口路径。
 
 ## 已实现
 
