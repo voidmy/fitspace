@@ -1,32 +1,32 @@
 # FitSpace 健身系统
 
-根据《健身系统需求说明》实现，包含微信原生小程序、Node.js API 服务和运营管理后台。当前使用 JSON 文件持久化，面向健身工作室和无人共享健身馆的演示与二次开发。
+根据《健身系统需求说明》实现，包含微信原生小程序、API 服务和运营管理后台。托管测试版使用 D1 持久化，本地原始 Node 服务仍可使用 JSON 文件运行，面向健身工作室和无人共享健身馆的演示与二次开发。
 
-## 启动 Node 服务
+## 启动托管兼容开发服务
 
-要求 Node.js 18 或更高版本。服务端仅使用 Node 内置模块，无需安装第三方依赖。
+要求 Node.js 22.13 或更高版本。
 
 ```bash
 cd /Users/lizhongquan/Desktop/miniWeb
-npm start
+npm install
+ADMIN_PASSWORD='你的测试密码' npm run dev
 ```
 
 启动后：
 
-- 管理后台：`http://127.0.0.1:3100/admin/`
-- API 健康检查：`http://127.0.0.1:3100/api/health`
-- 本地默认管理员密码：`fitspace123`
+- 管理后台：`http://localhost:3000/admin/`
+- API 健康检查：`http://localhost:3000/api/health`
 
-开发时可使用热重启：
+如需运行原始 Node + JSON 服务：
 
 ```bash
-npm run dev
+npm run start:node
 ```
 
-建议通过环境变量修改密码和端口：
+原始 Node 服务默认运行在 `3100` 端口，建议通过环境变量修改密码和端口：
 
 ```bash
-ADMIN_PASSWORD='你的强密码' PORT=3100 npm start
+ADMIN_PASSWORD='你的强密码' PORT=3100 npm run start:node
 ```
 
 ## 运营管理后台
@@ -135,7 +135,8 @@ pages/feature/       预约、门禁、人脸、WiFi、能量等功能
 utils/api.js         小程序 API 客户端
 utils/catalog.js     远程配置与本地兜底
 utils/state.js       本地状态与服务器同步
-server/index.js      Node API 服务入口
+server/index.cjs     本地 Node API 服务入口
+server/edge-api.ts   托管测试 API 服务入口
 server/data/         JSON 数据
 server/public/admin/ 运营管理后台
 server/tests/        服务端自动化测试

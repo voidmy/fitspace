@@ -3,7 +3,7 @@ const fs = require("node:fs/promises");
 const path = require("node:path");
 const crypto = require("node:crypto");
 const { URL } = require("node:url");
-const { JsonStore } = require("./lib/json-store");
+const { JsonStore } = require("./lib/json-store.cjs");
 
 const ROOT_DIR = path.resolve(__dirname, "..");
 const DEFAULT_DATA_DIR = path.join(__dirname, "data");

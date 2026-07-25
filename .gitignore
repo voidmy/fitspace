@@ -1,3 +1,11 @@
 .DS_Store
 tmp/
 server/data/*.tmp
+node_modules/
+dist/
+.next/
+.wrangler/
+.env
+.env.local
+*.tgz
+*.tsbuildinfo

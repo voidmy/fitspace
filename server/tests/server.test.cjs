@@ -3,7 +3,7 @@ const assert = require("node:assert/strict");
 const fs = require("node:fs/promises");
 const os = require("node:os");
 const path = require("node:path");
-const { createFitSpaceServer } = require("../index");
+const { createFitSpaceServer } = require("../index.cjs");
 
 async function createFixture() {
   const dataDir = await fs.mkdtemp(path.join(os.tmpdir(), "fitspace-server-"));
