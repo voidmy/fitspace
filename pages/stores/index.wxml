@@ -1,0 +1,33 @@
+<view class="page stores-page">
+  <view class="intro-card">
+    <text class="intro-eyebrow">ALL LOCATIONS</text>
+    <text class="intro-title">选择你的训练空间</text>
+    <text class="intro-desc">会员权益以所购卡种适用范围为准</text>
+  </view>
+
+  <view class="store-list">
+    <view class="store-item card {{selectedStoreId === item.id ? 'selected' : ''}}" wx:for="{{stores}}" wx:key="id">
+      <view class="store-main" bindtap="selectStore" data-id="{{item.id}}">
+        <view class="store-title-row">
+          <view>
+            <view class="status"><text></text>{{item.status}}</view>
+            <view class="store-title">{{item.name}}</view>
+          </view>
+          <view wx:if="{{selectedStoreId === item.id}}" class="selected-chip">当前门店</view>
+          <view wx:else class="distance">{{item.distance}}</view>
+        </view>
+        <view class="address">{{item.address}}</view>
+        <view class="hours">{{item.hours}} · 微信 {{item.wechat}}</view>
+        <view class="people-row">
+          <text>当前 {{item.people}} / {{item.capacity}} 人</text>
+          <text>舒适度 {{item.occupancy}}%</text>
+        </view>
+        <view class="track"><view class="bar" style="width: {{item.occupancy}}%"></view></view>
+      </view>
+      <view class="store-actions">
+        <view bindtap="openMap" data-id="{{item.id}}">地图导航</view>
+        <view bindtap="selectStore" data-id="{{item.id}}">{{selectedStoreId === item.id ? "已选择" : "切换到此店"}}</view>
+      </view>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,114 @@
+<view class="mine-page">
+  <view class="profile-shell">
+    <view class="top-safe"></view>
+    <view class="mine-topbar">
+      <text class="mine-brand">我的 FitSpace</text>
+      <view class="settings" bindtap="navigate" data-url="/pages/feature/index?type=settings">•••</view>
+    </view>
+
+    <view class="profile-row" bindtap="login">
+      <view class="avatar-wrap">
+        <image wx:if="{{user.avatarUrl}}" class="avatar" src="{{user.avatarUrl}}" mode="aspectFill"></image>
+        <view wx:else class="avatar avatar-placeholder">FS</view>
+        <view class="avatar-level">V</view>
+      </view>
+      <view class="profile-copy">
+        <view class="nickname">{{user.nickname}}</view>
+        <view class="member-line">{{user.level}} · {{user.memberNo}}</view>
+        <view wx:if="{{isDemoUser}}" class="login-hint">点击授权微信头像昵称 →</view>
+      </view>
+    </view>
+
+    <view class="stats-row">
+      <view class="stat-item">
+        <text class="stat-value">{{stats.training}}</text>
+        <text class="stat-label">训练/次</text>
+      </view>
+      <view class="stat-item">
+        <text class="stat-value">{{stats.minutes}}</text>
+        <text class="stat-label">运动/分钟</text>
+      </view>
+      <view class="stat-item">
+        <text class="stat-value">{{stats.courses}}</text>
+        <text class="stat-label">预约课程</text>
+      </view>
+      <view class="stat-item">
+        <text class="stat-value">{{stats.likes}}</text>
+        <text class="stat-label">推荐教练</text>
+      </view>
+    </view>
+  </view>
+
+  <view class="mine-content">
+    <view class="member-card" bindtap="openFeature" data-type="membership">
+      <view>
+        <text class="member-eyebrow">MY MEMBERSHIP</text>
+        <text class="member-title">我的会员卡</text>
+        <text class="member-desc">查看权益、到期时间和进场码</text>
+      </view>
+      <view class="member-action">查看全部 →</view>
+      <view class="member-shape shape-one"></view>
+      <view class="member-shape shape-two"></view>
+    </view>
+
+    <view class="menu-grid card">
+      <view class="menu-item" wx:for="{{menuItems}}" wx:key="name" bindtap="openFeature" data-type="{{item.type}}">
+        <view class="menu-icon menu-{{item.tone}}">{{item.icon}}</view>
+        <text>{{item.name}}</text>
+      </view>
+    </view>
+
+    <view class="sign-card card">
+      <view class="sign-left">
+        <view class="sign-icon">✓</view>
+        <view>
+          <view class="sign-title">每日签到</view>
+          <view class="sign-desc">连续训练，把自律变成习惯</view>
+        </view>
+      </view>
+      <button class="sign-btn" bindtap="signIn">签到 +20</button>
+    </view>
+
+    <view class="section schedule-section">
+      <view class="section-head">
+        <text class="section-title">训练安排</text>
+        <text class="section-more" bindtap="openFeature" data-type="records">训练记录 →</text>
+      </view>
+      <view class="schedule card">
+        <view class="schedule-tabs">
+          <view class="schedule-tab {{activeTab === 'group' ? 'active' : ''}}" bindtap="selectTab" data-tab="group">约团课</view>
+          <view class="schedule-tab {{activeTab === 'private' ? 'active' : ''}}" bindtap="selectTab" data-tab="private">私教课</view>
+          <view class="schedule-tab {{activeTab === 'record' ? 'active' : ''}}" bindtap="selectTab" data-tab="record">预约记录</view>
+        </view>
+        <view class="days-row">
+          <view class="day-item {{item.active ? 'active' : ''}}" wx:for="{{days}}" wx:key="day">
+            <text>{{item.label}}</text>
+            <text class="day-number">{{item.day}}</text>
+          </view>
+        </view>
+        <view wx:if="{{classes.length}}">
+          <view class="class-row" wx:for="{{classes}}" wx:key="id" bindtap="openFeature" data-type="{{activeTab === 'private' ? 'personal' : 'classes'}}">
+            <view class="class-time">{{item.time}}</view>
+            <view class="class-main">
+              <view class="class-name">{{item.name}}</view>
+              <view class="class-meta">{{item.coach}} · {{item.duration}}</view>
+            </view>
+            <view class="class-level">{{item.level}}</view>
+          </view>
+        </view>
+        <view wx:else class="schedule-empty">暂无预约，去安排一次训练吧</view>
+      </view>
+    </view>
+
+    <view class="energy-card" bindtap="openFeature" data-type="energy">
+      <view>
+        <text class="energy-eyebrow">ENERGY REWARDS</text>
+        <view class="energy-title">能量商城 <text>{{energy}} 能量</text></view>
+        <view class="energy-desc">训练打卡兑换运动好物</view>
+      </view>
+      <view class="energy-go">去兑换</view>
+    </view>
+  </view>
+
+  <bottom-nav active="mine"></bottom-nav>
+</view>

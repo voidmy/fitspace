@@ -1,0 +1,70 @@
+<view class="visit-page">
+  <view class="visit-hero">
+    <view class="ticket-copy">
+      <text class="ticket-tag">NEW MEMBER PASS</text>
+      <text class="ticket-title">先参观，再决定</text>
+      <text class="ticket-desc">无人健身房安心体验方案</text>
+    </view>
+    <view class="ticket-price">
+      <text>¥</text>25.8
+    </view>
+    <view class="ticket-cut top"></view>
+    <view class="ticket-cut bottom"></view>
+  </view>
+
+  <view class="visit-content">
+    <view class="rule-card card">
+      <view class="rule-title">自动退款规则</view>
+      <view class="timeline">
+        <view class="timeline-item">
+          <view class="timeline-icon">1</view>
+          <view><text>购买参观票</text><text>获得一次临时进场资格</text></view>
+        </view>
+        <view class="line"></view>
+        <view class="timeline-item">
+          <view class="timeline-icon">2</view>
+          <view><text>刷码进场</text><text>门禁记录开始计时</text></view>
+        </view>
+        <view class="line"></view>
+        <view class="timeline-item">
+          <view class="timeline-icon">3</view>
+          <view><text>15 分钟内离场</text><text>系统审核后原路自动退款</text></view>
+        </view>
+      </view>
+    </view>
+
+    <view class="store-info card">
+      <view class="info-label">适用门店</view>
+      <view class="info-title">{{store.name}}</view>
+      <view class="info-desc">{{store.address}}</view>
+      <view class="info-row"><text>{{store.hours}}</text><text>距你 {{store.distance}}</text></view>
+    </view>
+
+    <view wx:if="{{visitPass}}" class="pass-status card">
+      <view class="pass-status-head"><text>我的参观票</text><text>{{visitPass.status}}</text></view>
+      <view class="pass-code">FS · VISIT · {{visitPass.id}}</view>
+      <view class="pass-meta">{{visitPass.storeName}} · ¥{{visitPass.amount}}</view>
+      <view wx:if="{{visitPass.entryAt}}" class="pass-meta">进场时间 {{visitPass.entryAt}}</view>
+      <view wx:if="{{visitPass.refundAt}}" class="refund-note">已在 15 分钟规则内模拟原路退款</view>
+    </view>
+
+    <view class="notes card">
+      <view class="rule-title">使用说明</view>
+      <view>• 每位新客户限购 1 次，购买后 7 天内有效。</view>
+      <view>• 15 分钟以首次进场至最终离场的门禁记录为准。</view>
+      <view>• 超过 15 分钟视为完成体验，不再自动退款。</view>
+      <view>• 演示版不发起真实支付和退款。</view>
+    </view>
+  </view>
+
+  <view class="buy-bar safe-bottom">
+    <view class="agree" bindtap="toggleAgree">
+      <view class="checkbox {{agreed ? 'checked' : ''}}">{{agreed ? "✓" : ""}}</view>
+      <text>已阅读并同意参观票规则</text>
+    </view>
+    <button wx:if="{{!visitPass}}" class="buy-now" bindtap="buy">¥25.8 领取参观票</button>
+    <button wx:elif="{{visitPass.status === '待使用'}}" class="buy-now entry-now" bindtap="simulateEntry">模拟刷码进场</button>
+    <button wx:elif="{{visitPass.status === '体验中'}}" class="buy-now refund-now" bindtap="simulateExit">模拟 15 分钟内离场</button>
+    <button wx:else class="buy-now disabled" disabled>参观票 · {{visitPass.status}}</button>
+  </view>
+</view>

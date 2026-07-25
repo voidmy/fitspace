@@ -1,0 +1,265 @@
+<view class="page feature-page">
+  <view class="feature-hero feature-{{type}}">
+    <text class="feature-label">FITSPACE SERVICE</text>
+    <text class="feature-title">{{title}}</text>
+    <text class="feature-subtitle">{{subtitle}}</text>
+  </view>
+
+  <block wx:if="{{type === 'project'}}">
+    <view class="feature-list">
+      <view class="project-item card" wx:for="{{projects}}" wx:key="id">
+        <view class="feature-icon">{{item.icon}}</view>
+        <view class="item-main">
+          <view class="item-title">{{item.name}} <text>{{item.subtitle}}</text></view>
+          <view class="item-desc">{{item.desc}}</view>
+        </view>
+      </view>
+    </view>
+  </block>
+
+  <block wx:elif="{{type === 'equipment'}}">
+    <view class="store-strip card">
+      <view><text>{{store.name}}</text><text>器械状态为演示数据</text></view>
+      <view class="open-chip">{{store.status}}</view>
+    </view>
+    <view class="equipment-grid">
+      <view class="equipment-item card" wx:for="{{equipment}}" wx:key="id">
+        <view class="equipment-head"><view class="feature-icon">{{item.icon}}</view><view class="equipment-status">{{item.status}}</view></view>
+        <view class="item-title">{{item.name}} <text>共 {{item.count}} 台/区</text></view>
+        <view class="item-desc">{{item.tips}}</view>
+      </view>
+    </view>
+  </block>
+
+  <block wx:elif="{{type === 'guide'}}">
+    <view class="map-card">
+      <view class="map-grid"></view>
+      <view class="map-pin">F</view>
+      <view class="map-road road-one"></view>
+      <view class="map-road road-two"></view>
+    </view>
+    <view class="location-card card">
+      <view class="status-line"><text></text>{{store.status}} · {{store.hours}}</view>
+      <view class="location-title">{{store.name}}</view>
+      <view class="location-address">{{store.address}}</view>
+      <view class="location-row"><text>距你 {{store.distance}}</text><text>停车场入口：3 栋 B1</text></view>
+      <button class="primary-btn" bindtap="openMap">打开微信地图导航</button>
+    </view>
+  </block>
+
+  <block wx:elif="{{type === 'service'}}">
+    <view class="service-card card">
+      <view class="service-avatar">客</view>
+      <view class="service-title">FitSpace 客服中心</view>
+      <view class="service-desc">营业时间 09:00 - 22:00，紧急门禁问题支持 24 小时电话服务。</view>
+      <button class="primary-btn" bindtap="callStore">拨打门店电话 {{store.phone}}</button>
+      <button class="ghost-btn" bindtap="copy" data-value="{{store.wechat}}">复制客服微信 {{store.wechat}}</button>
+    </view>
+    <view class="faq card">
+      <view class="faq-title">常见问题</view>
+      <view><text>如何进场？</text><text>购卡/预约后，在“我的会员卡”出示进场码。</text></view>
+      <view><text>参观票怎么退款？</text><text>15 分钟内离场后由正式后台按门禁记录自动审核。</text></view>
+      <view><text>设备故障怎么办？</text><text>请立即停止使用并电话联系门店。</text></view>
+    </view>
+  </block>
+
+  <block wx:elif="{{type === 'membership'}}">
+    <view class="member-code">
+      <text class="code-label">ENTRY PASS</text>
+      <text class="code-name">{{user.nickname}}</text>
+      <view class="qr-grid">
+        <view class="{{item.on ? 'dark' : ''}}" wx:for="{{qrCells}}" wx:key="id"></view>
+      </view>
+      <text class="code-number">{{user.memberNo}}</text>
+      <text class="code-tip">演示进场码 · 每 30 秒自动刷新</text>
+    </view>
+    <view class="section">
+      <view class="section-head"><text class="section-title">有效会员卡</text><text class="section-more">{{cards.length}} 张</text></view>
+      <view wx:if="{{cards.length}}">
+        <view class="owned-card card" wx:for="{{cards}}" wx:key="id">
+          <view><text class="owned-status">{{item.status}}</text><text class="owned-name">{{item.name}}</text><text class="owned-store">{{item.storeName}}</text></view>
+          <view class="owned-arrow">→</view>
+        </view>
+      </view>
+      <view wx:else class="empty card">还没有会员卡，返回首页看看适合你的卡种</view>
+    </view>
+  </block>
+
+  <block wx:elif="{{type === 'entry'}}">
+    <view class="booking-form card">
+      <view class="form-title">预约进场时间</view>
+      <view class="form-row">
+        <text>门店</text><text>{{store.name}}</text>
+      </view>
+      <picker mode="date" value="{{selectedDate}}" start="{{minDate}}" bindchange="chooseDate">
+        <view class="form-row"><text>日期</text><text>{{selectedDate}} ›</text></view>
+      </picker>
+      <picker mode="selector" range="{{timeOptions}}" value="{{timeIndex}}" bindchange="chooseTime">
+        <view class="form-row"><text>时间</text><text>{{selectedTime}} ›</text></view>
+      </picker>
+      <button class="primary-btn booking-btn" bindtap="bookEntry">确认预约</button>
+    </view>
+    <view class="section">
+      <view class="section-head"><text class="section-title">进场预约记录</text></view>
+      <view wx:if="{{entryAppointments.length}}">
+        <view class="appointment card" wx:for="{{entryAppointments}}" wx:key="id">
+          <view><text class="appointment-title">{{item.title}}</text><text class="appointment-meta">{{item.time}} · {{item.storeName}}</text></view>
+          <button wx:if="{{item.status !== '已取消'}}" bindtap="cancelAppointment" data-id="{{item.id}}">取消</button>
+          <text wx:else class="cancelled">已取消</text>
+        </view>
+      </view>
+      <view wx:else class="empty card">暂无进场预约</view>
+    </view>
+  </block>
+
+  <block wx:elif="{{type === 'orders'}}">
+    <view wx:if="{{orders.length}}" class="order-list">
+      <view class="order-item card" wx:for="{{orders}}" wx:key="id">
+        <view class="order-head"><text>{{item.title}}</text><text class="order-status">{{item.status}}</text></view>
+        <view class="order-meta"><text>{{item.createdAt}}</text><text>{{item.amount > 0 ? '¥' + item.amount : '能量兑换'}}</text></view>
+        <view class="order-no">订单号 {{item.id}}</view>
+      </view>
+    </view>
+    <view wx:else class="empty card">暂无订单</view>
+  </block>
+
+  <block wx:elif="{{type === 'classes'}}">
+    <view class="store-strip card">
+      <view><text>{{store.name}}</text><text>预约成功后可在“我的”查看</text></view>
+      <view class="open-chip">本周</view>
+    </view>
+    <view class="class-list">
+      <view class="course-card card" wx:for="{{classes}}" wx:key="id">
+        <view class="course-date">{{item.time}}</view>
+        <view class="course-copy">
+          <view class="course-title">{{item.name}}</view>
+          <view class="course-meta">{{item.coach}} · {{item.duration}} · {{item.level}}</view>
+          <view class="course-left">剩余 {{item.left}} 个名额</view>
+        </view>
+        <button bindtap="bookClass" data-id="{{item.id}}">预约</button>
+      </view>
+    </view>
+  </block>
+
+  <block wx:elif="{{type === 'personal'}}">
+    <view class="booking-form card">
+      <view class="form-title">选择上课时间</view>
+      <picker mode="date" value="{{selectedDate}}" start="{{minDate}}" bindchange="chooseDate">
+        <view class="form-row"><text>日期</text><text>{{selectedDate}} ›</text></view>
+      </picker>
+      <picker mode="selector" range="{{timeOptions}}" value="{{timeIndex}}" bindchange="chooseTime">
+        <view class="form-row"><text>时间</text><text>{{selectedTime}} ›</text></view>
+      </picker>
+    </view>
+    <view class="coach-book card" wx:for="{{coaches}}" wx:key="id">
+      <view class="mini-avatar" style="background: {{item.color}}" bindtap="openCoach" data-id="{{item.id}}">{{item.initials}}</view>
+      <view class="coach-book-copy" bindtap="openCoach" data-id="{{item.id}}">
+        <text>{{item.name}} · {{item.title}}</text>
+        <text>{{item.years}} 年经验 · ¥{{item.price}}/小时</text>
+      </view>
+      <button bindtap="bookCoach" data-id="{{item.id}}">预约</button>
+    </view>
+  </block>
+
+  <block wx:elif="{{type === 'following'}}">
+    <view wx:if="{{followingCoaches.length}}">
+      <view class="coach-book card" wx:for="{{followingCoaches}}" wx:key="id">
+        <view class="mini-avatar" style="background: {{item.color}}" bindtap="openCoach" data-id="{{item.id}}">{{item.initials}}</view>
+        <view class="coach-book-copy" bindtap="openCoach" data-id="{{item.id}}"><text>{{item.name}}</text><text>{{item.title}} · {{item.years}} 年经验</text></view>
+        <view class="owned-arrow">→</view>
+      </view>
+    </view>
+    <view wx:else class="empty card">还没有关注教练，可从首页教练团队中关注</view>
+  </block>
+
+  <block wx:elif="{{type === 'face'}}">
+    <view class="face-card card">
+      <image wx:if="{{faceImagePath}}" class="face-preview" src="{{faceImagePath}}" mode="aspectFill"></image>
+      <view wx:else class="face-outline"><view class="face-head"></view><view class="face-body"></view><view class="corner c1"></view><view class="corner c2"></view><view class="corner c3"></view><view class="corner c4"></view></view>
+      <view class="face-status">{{faceEnrolled ? "已完成人脸录入" : "尚未录入人脸"}}</view>
+      <view class="face-desc">请在光线充足的环境下正对镜头。演示版仅保存本机临时图片，不上传服务器。</view>
+      <button class="primary-btn" bindtap="enrollFace">{{faceEnrolled ? "重新录入" : "开始录入"}}</button>
+      <button wx:if="{{faceEnrolled}}" class="remove-btn" bindtap="removeFace">删除人脸信息</button>
+    </view>
+  </block>
+
+  <block wx:elif="{{type === 'door'}}">
+    <view class="door-card">
+      <text class="door-label">TODAY'S ACCESS CODE</text>
+      <text class="door-title">今日进场密码</text>
+      <text class="door-code">{{passwordVisible ? doorPassword : "•• •• ••"}}</text>
+      <text class="door-expire">仅限 {{store.name}} · 今日 23:59 前有效</text>
+      <button bindtap="togglePassword">{{passwordVisible ? "隐藏密码" : "验证并查看"}}</button>
+      <button wx:if="{{passwordVisible}}" class="copy-code" bindtap="copy" data-value="{{doorPassword}}">复制密码</button>
+    </view>
+    <view class="security card"><text>安全提醒</text><text>请勿转发门禁密码。正式版应在服务端校验有效会员身份后动态下发，并记录每次查看与开门行为。</text></view>
+  </block>
+
+  <block wx:elif="{{type === 'wifi'}}">
+    <view class="wifi-card card">
+      <view class="wifi-icon">)))</view>
+      <view class="wifi-title">FitSpace-Member</view>
+      <view class="wifi-desc">当前门店会员专属 WiFi</view>
+      <view class="wifi-info"><text>账号</text><text>FitSpace-Member</text></view>
+      <view class="wifi-info"><text>密码</text><text>Train2026</text></view>
+      <button class="primary-btn" bindtap="copy" data-value="Train2026">复制 WiFi 密码</button>
+    </view>
+  </block>
+
+  <block wx:elif="{{type === 'checkin'}}">
+    <view class="checkin-card">
+      <text class="checkin-day">{{checkins.length}}</text>
+      <text class="checkin-label">累计训练签到</text>
+      <text class="checkin-reward">今日签到可得 20 能量</text>
+      <button bindtap="signIn">立即签到</button>
+    </view>
+  </block>
+
+  <block wx:elif="{{type === 'records'}}">
+    <view wx:if="{{checkins.length}}">
+      <view class="record card" wx:for="{{checkins}}" wx:key="id">
+        <view class="record-date"><text>{{item.day}}</text><text>{{item.month}}</text></view>
+        <view><text class="record-title">自主训练签到</text><text class="record-meta">{{item.time}} · {{item.storeName}}</text></view>
+        <view class="record-status">完成</view>
+      </view>
+    </view>
+    <view wx:else class="empty card">暂无训练签到记录，从今天开始吧</view>
+  </block>
+
+  <block wx:elif="{{type === 'energy'}}">
+    <view class="energy-balance">
+      <text>MY ENERGY</text>
+      <view><text>{{energy}}</text> 能量</view>
+      <view>签到、完成训练与推荐教练均可获得能量</view>
+    </view>
+    <view class="goods-grid">
+      <view class="goods card" wx:for="{{goods}}" wx:key="id">
+        <view class="goods-icon">{{item.icon}}</view>
+        <view class="goods-name">{{item.name}}</view>
+        <view class="goods-stock">剩余 {{item.stock}} 份</view>
+        <view class="goods-bottom"><text>{{item.energy}} 能量</text><button bindtap="redeem" data-id="{{item.id}}">兑换</button></view>
+      </view>
+    </view>
+  </block>
+
+  <block wx:elif="{{type === 'settings'}}">
+    <view class="server-settings card">
+      <view class="server-settings-head">
+        <view>
+          <text>数据服务器</text>
+          <text>开发者工具默认使用本机地址</text>
+        </view>
+        <text class="server-state {{serverStatus === '连接正常' ? 'online' : ''}}">{{serverStatus}}</text>
+      </view>
+      <input value="{{serverUrl}}" bindinput="inputServerUrl" placeholder="http://127.0.0.1:3100" />
+      <button class="primary-btn" bindtap="saveServerUrl">保存并测试连接</button>
+      <view class="server-tip">真机调试请改成电脑的局域网 IP，并确保手机和电脑处于同一网络。</view>
+    </view>
+    <view class="settings-list card">
+      <view><text>当前版本</text><text>FitSpace Demo 1.0.0</text></view>
+      <view><text>数据存储</text><text>服务器 JSON + 本地兜底</text></view>
+      <view><text>支付模式</text><text>演示模拟</text></view>
+    </view>
+    <button class="reset-btn" bindtap="resetDemo">重置本地演示数据</button>
+  </block>
+</view>

@@ -1,0 +1,24 @@
+{
+  "pages": [
+    "pages/home/index",
+    "pages/mine/index",
+    "pages/stores/index",
+    "pages/visit-pass/index",
+    "pages/verify/index",
+    "pages/cards/index",
+    "pages/coaches/index",
+    "pages/coach-detail/index",
+    "pages/live/index",
+    "pages/feature/index"
+  ],
+  "window": {
+    "navigationBarBackgroundColor": "#0b1713",
+    "navigationBarTextStyle": "white",
+    "navigationBarTitleText": "FitSpace",
+    "backgroundColor": "#f3f5f2",
+    "backgroundTextStyle": "dark"
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json",
+  "lazyCodeLoading": "requiredComponents"
+}

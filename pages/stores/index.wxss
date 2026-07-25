@@ -1,0 +1,141 @@
+.stores-page {
+  padding-bottom: 50rpx;
+}
+
+.intro-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: 42rpx 32rpx;
+  overflow: hidden;
+  border-radius: 34rpx;
+  background: linear-gradient(135deg, #173d2d, #0b1713);
+  color: #ffffff;
+}
+
+.intro-eyebrow {
+  color: #6f9d88;
+  font-size: 17rpx;
+  letter-spacing: 4rpx;
+}
+
+.intro-title {
+  margin-top: 18rpx;
+  font-size: 38rpx;
+  font-weight: 780;
+}
+
+.intro-desc {
+  margin-top: 12rpx;
+  color: #91a59c;
+  font-size: 21rpx;
+}
+
+.store-list {
+  margin-top: 22rpx;
+}
+
+.store-item {
+  margin-bottom: 18rpx;
+  overflow: hidden;
+}
+
+.store-item.selected {
+  border: 2rpx solid #42b87b;
+}
+
+.store-main {
+  padding: 28rpx;
+}
+
+.store-title-row,
+.people-row,
+.store-actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.status {
+  display: flex;
+  align-items: center;
+  color: #268059;
+  font-size: 20rpx;
+}
+
+.status text {
+  width: 11rpx;
+  height: 11rpx;
+  margin-right: 8rpx;
+  border-radius: 50%;
+  background: #48cf88;
+}
+
+.store-title {
+  margin-top: 8rpx;
+  font-size: 31rpx;
+  font-weight: 760;
+}
+
+.selected-chip,
+.distance {
+  padding: 9rpx 15rpx;
+  border-radius: 999rpx;
+  background: #e7f7ee;
+  color: #237450;
+  font-size: 19rpx;
+}
+
+.distance {
+  background: #f1f3f2;
+  color: #7f8b85;
+}
+
+.address {
+  margin-top: 24rpx;
+  font-size: 23rpx;
+}
+
+.hours {
+  margin-top: 8rpx;
+  color: #8d9792;
+  font-size: 20rpx;
+}
+
+.people-row {
+  margin-top: 24rpx;
+  color: #6d7b74;
+  font-size: 20rpx;
+}
+
+.track {
+  height: 10rpx;
+  margin-top: 10rpx;
+  overflow: hidden;
+  border-radius: 999rpx;
+  background: #edf1ef;
+}
+
+.bar {
+  height: 100%;
+  border-radius: 999rpx;
+  background: linear-gradient(90deg, #51cd89, #e9aa43);
+}
+
+.store-actions {
+  border-top: 1rpx solid #edf0ee;
+}
+
+.store-actions view {
+  flex: 1;
+  padding: 22rpx 0;
+  border-right: 1rpx solid #edf0ee;
+  color: #24714f;
+  text-align: center;
+  font-size: 22rpx;
+  font-weight: 650;
+}
+
+.store-actions view:last-child {
+  border-right: 0;
+}

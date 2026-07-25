@@ -1,0 +1,32 @@
+<view class="page cards-page">
+  <view class="cards-hero">
+    <text class="hero-label">MEMBERSHIP</text>
+    <text class="hero-title">一张好卡，养成训练习惯</text>
+    <text class="hero-desc">当前门店：{{store.name}}</text>
+  </view>
+
+  <view class="products">
+    <view class="product card product-{{item.tone}}" wx:for="{{cards}}" wx:key="id" bindtap="selectCard" data-id="{{item.id}}">
+      <view class="product-head">
+        <text class="product-badge">{{item.badge}}</text>
+        <text class="product-validity">{{item.validity}}</text>
+      </view>
+      <text class="product-name">{{item.name}}</text>
+      <text class="product-desc">{{item.desc}}</text>
+      <view class="product-bottom">
+        <view>
+          <text class="yen">¥</text><text class="product-price">{{item.price}}</text>
+          <text class="original">¥{{item.originalPrice}}</text>
+        </view>
+        <button class="buy-btn" catchtap="buy" data-id="{{item.id}}">立即购买</button>
+      </view>
+    </view>
+  </view>
+
+  <view class="notice card">
+    <view class="notice-title">购卡须知</view>
+    <view>1. 演示版支付仅写入本地订单，不会扣款。</view>
+    <view>2. 月卡仅限当前门店使用，年卡支持全部门店。</view>
+    <view>3. 正式上线需接入微信支付、退款与会员后台。</view>
+  </view>
+</view>

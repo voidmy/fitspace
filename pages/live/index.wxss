@@ -1,0 +1,233 @@
+.live-page {
+  padding-bottom: 48rpx;
+}
+
+.live-summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 28rpx;
+  background: #0c1914;
+  color: #ffffff;
+}
+
+.live-status {
+  display: flex;
+  align-items: center;
+  color: #5bdb93;
+  font-size: 19rpx;
+  font-weight: 720;
+}
+
+.live-status text {
+  width: 11rpx;
+  height: 11rpx;
+  margin-right: 8rpx;
+  border-radius: 50%;
+  background: #5bdb93;
+  box-shadow: 0 0 14rpx rgba(91, 219, 147, 0.8);
+}
+
+.store-name {
+  margin-top: 10rpx;
+  font-size: 31rpx;
+  font-weight: 760;
+}
+
+.update-time {
+  margin-top: 8rpx;
+  color: #7f9288;
+  font-size: 19rpx;
+}
+
+.people-count {
+  color: #91a39a;
+  font-size: 21rpx;
+}
+
+.people-count text {
+  color: #ffffff;
+  font-size: 43rpx;
+  font-weight: 820;
+}
+
+.comfort {
+  margin-top: 18rpx;
+  padding: 24rpx;
+}
+
+.comfort-head,
+.comfort-labels {
+  display: flex;
+  justify-content: space-between;
+}
+
+.comfort-head {
+  font-size: 22rpx;
+  font-weight: 680;
+}
+
+.comfort-track {
+  height: 15rpx;
+  margin-top: 18rpx;
+  overflow: hidden;
+  border-radius: 999rpx;
+  background: #e8edeb;
+}
+
+.comfort-bar {
+  height: 100%;
+  border-radius: 999rpx;
+  background: linear-gradient(90deg, #4bd087, #ecbd4b, #ed6845);
+}
+
+.comfort-labels {
+  margin-top: 8rpx;
+  color: #99a29e;
+  font-size: 16rpx;
+}
+
+.camera-list {
+  margin-top: 18rpx;
+}
+
+.camera-card {
+  margin-bottom: 18rpx;
+  overflow: hidden;
+}
+
+.camera-visual {
+  position: relative;
+  height: 340rpx;
+  overflow: hidden;
+}
+
+.camera-green {
+  background: linear-gradient(170deg, #51635a 0 45%, #202c27 46%);
+}
+
+.camera-blue {
+  background: linear-gradient(170deg, #52646a 0 45%, #222d31 46%);
+}
+
+.camera-orange {
+  background: linear-gradient(170deg, #655b4b 0 45%, #302a23 46%);
+}
+
+.camera-grid {
+  position: absolute;
+  inset: 0;
+  opacity: 0.24;
+  background-image: linear-gradient(rgba(255,255,255,.34) 1rpx, transparent 1rpx), linear-gradient(90deg, rgba(255,255,255,.34) 1rpx, transparent 1rpx);
+  background-size: 55rpx 55rpx;
+  transform: perspective(320rpx) rotateX(58deg) scale(1.5);
+  transform-origin: bottom;
+}
+
+.rack {
+  position: absolute;
+  bottom: 38rpx;
+  width: 150rpx;
+  height: 190rpx;
+  border: 10rpx solid #a7b0ac;
+  border-bottom-width: 18rpx;
+}
+
+.rack::after {
+  position: absolute;
+  top: 52rpx;
+  right: -35rpx;
+  left: -35rpx;
+  height: 14rpx;
+  border-radius: 8rpx;
+  background: #202723;
+  box-shadow: 0 38rpx 0 #202723;
+  content: "";
+}
+
+.rack-one {
+  left: 90rpx;
+}
+
+.rack-two {
+  right: 80rpx;
+  height: 150rpx;
+}
+
+.live-badge,
+.camera-time {
+  position: absolute;
+  top: 16rpx;
+  padding: 8rpx 12rpx;
+  border-radius: 8rpx;
+  background: rgba(0, 0, 0, 0.42);
+  color: #ffffff;
+  font-size: 17rpx;
+}
+
+.live-badge {
+  left: 16rpx;
+  color: #ff7770;
+}
+
+.camera-time {
+  right: 16rpx;
+}
+
+.camera-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 22rpx;
+}
+
+.camera-name {
+  font-size: 26rpx;
+  font-weight: 730;
+}
+
+.camera-note {
+  margin-top: 5rpx;
+  color: #929c97;
+  font-size: 18rpx;
+}
+
+.zone-count {
+  padding: 10rpx 16rpx;
+  border-radius: 999rpx;
+  background: #ebf6f0;
+  color: #277552;
+  font-size: 20rpx;
+}
+
+.privacy {
+  display: flex;
+  padding: 24rpx;
+}
+
+.privacy-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 auto;
+  width: 64rpx;
+  height: 64rpx;
+  margin-right: 18rpx;
+  border-radius: 20rpx;
+  background: #edf1ef;
+  color: #596860;
+  font-size: 21rpx;
+  font-weight: 750;
+}
+
+.privacy-title {
+  font-size: 25rpx;
+  font-weight: 720;
+}
+
+.privacy-desc {
+  margin-top: 8rpx;
+  color: #7d8983;
+  font-size: 20rpx;
+  line-height: 1.65;
+}

@@ -1,0 +1,14 @@
+{
+  "name": "fitspace-mini-program",
+  "version": "1.0.0",
+  "private": true,
+  "description": "FitSpace 微信小程序、Node JSON API 与后台管理系统",
+  "scripts": {
+    "start": "node server/index.js",
+    "dev": "node --watch server/index.js",
+    "test": "node --test server/tests/*.test.js"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

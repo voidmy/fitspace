@@ -1,0 +1,43 @@
+<view class="page live-page">
+  <view class="live-summary card">
+    <view>
+      <view class="live-status"><text></text>LIVE · {{store.status}}</view>
+      <view class="store-name">{{store.name}}</view>
+      <view class="update-time">画面更新 {{updatedAt}}</view>
+    </view>
+    <view class="people-count"><text>{{store.people}}</text>/{{store.capacity}} 人</view>
+  </view>
+
+  <view class="comfort card">
+    <view class="comfort-head"><text>当前舒适度</text><text>{{store.occupancy}}%</text></view>
+    <view class="comfort-track"><view class="comfort-bar" style="width: {{store.occupancy}}%"></view></view>
+    <view class="comfort-labels"><text>宽松</text><text>适中</text><text>拥挤</text></view>
+  </view>
+
+  <view class="camera-list">
+    <view class="camera-card card" wx:for="{{cameras}}" wx:key="id">
+      <view class="camera-visual camera-{{item.tone}}">
+        <view class="camera-grid"></view>
+        <view class="rack rack-one"></view>
+        <view class="rack rack-two"></view>
+        <view class="live-badge">● LIVE</view>
+        <view class="camera-time">{{updatedAt}}</view>
+      </view>
+      <view class="camera-meta">
+        <view>
+          <view class="camera-name">{{item.name}}</view>
+          <view class="camera-note">{{notice}}</view>
+        </view>
+        <view class="zone-count">{{item.people}} 人</view>
+      </view>
+    </view>
+  </view>
+
+  <view class="privacy card">
+    <view class="privacy-icon">隐</view>
+    <view>
+      <view class="privacy-title">隐私与安全</view>
+      <view class="privacy-desc">实况仅用于查看场地拥挤程度。正式上线需对画面脱敏、配置访问权限并遵守公共视频监控相关规定。</view>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#0b1713" />
+    <title>FitSpace 运营后台</title>
+    <link rel="stylesheet" href="/admin/app.css" />
+  </head>
+  <body>
+    <section class="login-screen" id="loginScreen">
+      <div class="login-atmosphere atmosphere-one"></div>
+      <div class="login-atmosphere atmosphere-two"></div>
+      <div class="login-card">
+        <div class="brand-lockup">
+          <span class="brand-mark">F</span>
+          <span>
+            <strong>FITSPACE</strong>
+            <small>OPERATIONS CENTER</small>
+          </span>
+        </div>
+        <div class="login-copy">
+          <p class="eyebrow">WELCOME BACK</p>
+          <h1>让每一家门店<br />保持最佳状态</h1>
+          <p>管理门店、会员卡、教练、课程与小程序运营数据。</p>
+        </div>
+        <form id="loginForm" class="login-form">
+          <label for="password">管理员密码</label>
+          <div class="password-field">
+            <input id="password" name="password" type="password" autocomplete="current-password" placeholder="请输入管理员密码" required />
+            <button type="button" id="togglePassword" class="text-button" aria-label="显示或隐藏密码">显示</button>
+          </div>
+          <button class="login-button" type="submit">
+            <span>进入运营后台</span>
+            <span>→</span>
+          </button>
+          <p class="login-hint">本地默认密码：fitspace123，可通过 ADMIN_PASSWORD 修改</p>
+        </form>
+      </div>
+      <p class="login-footer">FITSPACE · TRAIN ANYTIME</p>
+    </section>
+
+    <div class="app-shell hidden" id="appShell">
+      <aside class="sidebar">
+        <div class="brand-lockup sidebar-brand">
+          <span class="brand-mark">F</span>
+          <span>
+            <strong>FITSPACE</strong>
+            <small>运营管理中心</small>
+          </span>
+        </div>
+
+        <nav class="nav-groups" aria-label="后台导航">
+          <div class="nav-group">
+            <p>经营概览</p>
+            <button class="nav-item active" data-view="dashboard"><span class="nav-symbol">⌂</span><span>仪表盘</span></button>
+            <button class="nav-item" data-view="clients"><span class="nav-symbol">人</span><span>会员数据</span></button>
+          </div>
+          <div class="nav-group">
+            <p>小程序配置</p>
+            <button class="nav-item" data-resource="banners"><span class="nav-symbol">广</span><span>广告轮播</span></button>
+            <button class="nav-item" data-resource="stores"><span class="nav-symbol">店</span><span>门店管理</span></button>
+            <button class="nav-item" data-resource="cards"><span class="nav-symbol">卡</span><span>会员卡</span></button>
+            <button class="nav-item" data-resource="projects"><span class="nav-symbol">项</span><span>训练项目</span></button>
+            <button class="nav-item" data-resource="coaches"><span class="nav-symbol">教</span><span>教练团队</span></button>
+            <button class="nav-item" data-resource="equipment"><span class="nav-symbol">械</span><span>门店器械</span></button>
+            <button class="nav-item" data-resource="classes"><span class="nav-symbol">课</span><span>团课排期</span></button>
+            <button class="nav-item" data-resource="energyGoods"><span class="nav-symbol">能</span><span>能量商品</span></button>
+          </div>
+        </nav>
+
+        <div class="sidebar-footer">
+          <div class="server-status"><span></span><div><strong>服务运行中</strong><small>JSON 数据已连接</small></div></div>
+          <button id="logoutButton" class="logout-button">退出登录</button>
+        </div>
+      </aside>
+
+      <main class="main">
+        <header class="topbar">
+          <div>
+            <p class="eyebrow" id="pageEyebrow">OVERVIEW</p>
+            <h2 id="pageTitle">经营仪表盘</h2>
+          </div>
+          <div class="topbar-actions">
+            <span class="today" id="todayLabel"></span>
+            <button class="icon-button" id="refreshButton" title="刷新">↻</button>
+            <button class="primary-action hidden" id="createButton"><span>＋</span> 新增</button>
+          </div>
+        </header>
+        <section class="content" id="content" aria-live="polite"></section>
+      </main>
+    </div>
+
+    <dialog id="editDialog" class="edit-dialog">
+      <form method="dialog" class="dialog-panel" id="editForm">
+        <div class="dialog-head">
+          <div>
+            <p class="eyebrow" id="dialogEyebrow">CONFIGURATION</p>
+            <h3 id="dialogTitle">编辑配置</h3>
+          </div>
+          <button type="button" class="dialog-close" id="dialogClose" aria-label="关闭">×</button>
+        </div>
+        <div class="dialog-body" id="formFields"></div>
+        <div class="dialog-actions">
+          <button type="button" class="secondary-action" id="dialogCancel">取消</button>
+          <button type="submit" class="primary-action">保存配置</button>
+        </div>
+      </form>
+    </dialog>
+
+    <dialog id="clientDialog" class="edit-dialog">
+      <div class="dialog-panel client-panel">
+        <div class="dialog-head">
+          <div>
+            <p class="eyebrow">MEMBER SNAPSHOT</p>
+            <h3 id="clientDialogTitle">会员详情</h3>
+          </div>
+          <button type="button" class="dialog-close" id="clientDialogClose" aria-label="关闭">×</button>
+        </div>
+        <div class="dialog-body" id="clientDetail"></div>
+      </div>
+    </dialog>
+
+    <div class="toast" id="toast" role="status"></div>
+    <script src="/admin/app.js"></script>
+  </body>
+</html>

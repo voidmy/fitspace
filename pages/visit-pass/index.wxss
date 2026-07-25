@@ -1,0 +1,268 @@
+.visit-page {
+  min-height: 100vh;
+  padding-bottom: 210rpx;
+}
+
+.visit-hero {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 310rpx;
+  padding: 48rpx 44rpx;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 76% 20%, rgba(255, 255, 255, 0.24), transparent 26%),
+    linear-gradient(135deg, #ffad42, #f15e2d);
+  color: #ffffff;
+}
+
+.ticket-copy {
+  display: flex;
+  flex-direction: column;
+}
+
+.ticket-tag {
+  font-size: 16rpx;
+  letter-spacing: 4rpx;
+  opacity: 0.75;
+}
+
+.ticket-title {
+  margin-top: 24rpx;
+  font-size: 44rpx;
+  font-weight: 850;
+}
+
+.ticket-desc {
+  margin-top: 12rpx;
+  font-size: 21rpx;
+  opacity: 0.82;
+}
+
+.ticket-price {
+  font-size: 64rpx;
+  font-weight: 880;
+}
+
+.ticket-price text {
+  font-size: 27rpx;
+}
+
+.ticket-cut {
+  position: absolute;
+  left: 68%;
+  width: 36rpx;
+  height: 36rpx;
+  border-radius: 50%;
+  background: #f3f5f2;
+}
+
+.ticket-cut.top {
+  top: -18rpx;
+}
+
+.ticket-cut.bottom {
+  bottom: -18rpx;
+}
+
+.visit-content {
+  padding: 24rpx;
+}
+
+.rule-card,
+.store-info,
+.notes {
+  margin-bottom: 18rpx;
+  padding: 28rpx;
+}
+
+.rule-title {
+  font-size: 29rpx;
+  font-weight: 750;
+}
+
+.timeline {
+  margin-top: 30rpx;
+}
+
+.timeline-item {
+  display: flex;
+  align-items: center;
+}
+
+.timeline-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 auto;
+  width: 58rpx;
+  height: 58rpx;
+  margin-right: 20rpx;
+  border-radius: 18rpx;
+  background: #18352a;
+  color: #61dd99;
+  font-weight: 800;
+}
+
+.timeline-item text {
+  display: block;
+}
+
+.timeline-item text:first-child {
+  font-size: 25rpx;
+  font-weight: 680;
+}
+
+.timeline-item text:last-child {
+  margin-top: 5rpx;
+  color: #8d9792;
+  font-size: 20rpx;
+}
+
+.line {
+  width: 2rpx;
+  height: 32rpx;
+  margin-left: 28rpx;
+  background: #dfe5e2;
+}
+
+.info-label {
+  color: #7f8a85;
+  font-size: 20rpx;
+}
+
+.info-title {
+  margin-top: 12rpx;
+  font-size: 31rpx;
+  font-weight: 750;
+}
+
+.info-desc {
+  margin-top: 12rpx;
+  color: #6e7c75;
+  font-size: 22rpx;
+}
+
+.info-row {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20rpx;
+  padding-top: 18rpx;
+  border-top: 1rpx solid #eef1ef;
+  color: #26805a;
+  font-size: 20rpx;
+}
+
+.notes {
+  color: #76827c;
+  font-size: 21rpx;
+  line-height: 2;
+}
+
+.pass-status {
+  margin-bottom: 18rpx;
+  padding: 26rpx;
+  border: 2rpx solid #49b87d;
+}
+
+.pass-status-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 26rpx;
+  font-weight: 720;
+}
+
+.pass-status-head text:last-child {
+  padding: 8rpx 14rpx;
+  border-radius: 999rpx;
+  background: #e5f6ec;
+  color: #237952;
+  font-size: 19rpx;
+}
+
+.pass-code {
+  margin-top: 20rpx;
+  padding: 20rpx;
+  border-radius: 18rpx;
+  background: #132b22;
+  color: #ffffff;
+  font-size: 21rpx;
+  font-weight: 700;
+  letter-spacing: 2rpx;
+  text-align: center;
+}
+
+.pass-meta,
+.refund-note {
+  margin-top: 12rpx;
+  color: #7c8983;
+  font-size: 20rpx;
+}
+
+.refund-note {
+  color: #237952;
+}
+
+.notes .rule-title {
+  margin-bottom: 10rpx;
+  color: #1d3029;
+}
+
+.buy-bar {
+  position: fixed;
+  z-index: 10;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 18rpx 24rpx 24rpx;
+  border-top: 1rpx solid #e7ebe9;
+  background: rgba(255, 255, 255, 0.98);
+}
+
+.agree {
+  display: flex;
+  align-items: center;
+  margin-bottom: 14rpx;
+  color: #7e8984;
+  font-size: 19rpx;
+}
+
+.checkbox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30rpx;
+  height: 30rpx;
+  margin-right: 10rpx;
+  border: 1rpx solid #b9c1bd;
+  border-radius: 8rpx;
+}
+
+.checkbox.checked {
+  border-color: #2b9b68;
+  background: #2b9b68;
+  color: #ffffff;
+}
+
+.buy-now {
+  height: 86rpx;
+  background: #ff6b35;
+  color: #ffffff;
+  font-size: 27rpx;
+  font-weight: 730;
+}
+
+.buy-now.entry-now {
+  background: #1d6e4d;
+}
+
+.buy-now.refund-now {
+  background: #e6a23e;
+}
+
+.buy-now.disabled {
+  background: #c9cfcc;
+  color: #ffffff;
+}

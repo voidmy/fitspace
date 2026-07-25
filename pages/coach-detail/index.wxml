@@ -1,0 +1,56 @@
+<view class="coach-detail">
+  <view class="detail-hero" style="background: linear-gradient(145deg, {{coach.color}}, #0b1713)">
+    <text class="hero-initials">{{coach.initials}}</text>
+    <view class="hero-copy">
+      <text class="hero-name">{{coach.name}}</text>
+      <text class="hero-title">{{coach.title}} · {{coach.years}} 年经验</text>
+      <view class="hero-tags">
+        <text wx:for="{{coach.tags}}" wx:key="*this">{{item}}</text>
+      </view>
+    </view>
+  </view>
+
+  <view class="detail-content">
+    <view class="summary card">
+      <view class="summary-stat"><text>{{coach.years}}</text><text>执教年限</text></view>
+      <view class="summary-stat"><text>{{coach.likes + (liked ? 1 : 0)}}</text><text>学员推荐</text></view>
+      <view class="summary-stat"><text>¥{{coach.price}}</text><text>每小时</text></view>
+    </view>
+
+    <view class="detail-card card">
+      <view class="detail-title">教练介绍</view>
+      <view class="detail-text">{{coach.intro}}</view>
+    </view>
+
+    <view class="detail-card result-card">
+      <text class="result-label">CLIENT RESULTS</text>
+      <text class="result-title">客户成果</text>
+      <text class="result-content">{{coach.result}}</text>
+      <view class="result-visual">
+        <view><text>训练前</text><text>START</text></view>
+        <view class="result-arrow">→</view>
+        <view><text>12 周后</text><text>BETTER</text></view>
+      </view>
+    </view>
+
+    <view class="detail-card card">
+      <view class="detail-title">专业资质</view>
+      <view class="achievement" wx:for="{{coach.achievements}}" wx:key="*this">
+        <view>✓</view><text>{{item}}</text>
+      </view>
+    </view>
+
+    <view class="recommend-card card">
+      <view>
+        <view class="detail-title">推荐这位教练</view>
+        <view class="recommend-desc">真实的学员选择，让更多人找到合适的教练</view>
+      </view>
+      <button class="{{liked ? 'active' : ''}}" bindtap="toggleLike">{{liked ? "♥ 已推荐" : "♡ 推荐"}}</button>
+    </view>
+  </view>
+
+  <view class="book-bar safe-bottom">
+    <button class="follow-btn {{followed ? 'active' : ''}}" bindtap="toggleFollow">{{followed ? "已关注" : "+ 关注"}}</button>
+    <button class="book-btn" bindtap="book">预约私教课 · ¥{{coach.price}}/小时</button>
+  </view>
+</view>

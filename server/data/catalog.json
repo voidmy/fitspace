@@ -1,0 +1,348 @@
+{
+  "version": 1,
+  "updatedAt": "2026-07-25T00:00:00.000Z",
+  "banners": [
+    {
+      "id": "banner-1",
+      "eyebrow": "新店开业季",
+      "title": "训练，从今天开始",
+      "desc": "7 日体验卡限时 ¥39",
+      "action": "去看看",
+      "url": "/pages/cards/index",
+      "tone": "green",
+      "enabled": true,
+      "sort": 10
+    },
+    {
+      "id": "banner-2",
+      "eyebrow": "24H 自助健身",
+      "title": "随时进场 自在开练",
+      "desc": "新客参观票，离场自动原路退",
+      "action": "领取参观票",
+      "url": "/pages/visit-pass/index",
+      "tone": "orange",
+      "enabled": true,
+      "sort": 20
+    },
+    {
+      "id": "banner-3",
+      "eyebrow": "本周课程",
+      "title": "燃脂搏击 · 核心塑形",
+      "desc": "精品小班，在线预约",
+      "action": "预约课程",
+      "url": "/pages/feature/index?type=classes",
+      "tone": "purple",
+      "enabled": true,
+      "sort": 30
+    }
+  ],
+  "stores": [
+    {
+      "id": "store-1",
+      "name": "FitSpace 武侯店",
+      "shortName": "武侯店",
+      "distance": "2.2km",
+      "address": "成都市武侯区天泰路 287 号 3 栋",
+      "hours": "24 小时营业",
+      "phone": "028-88886666",
+      "wechat": "FitSpace-WH",
+      "latitude": 30.5844,
+      "longitude": 104.0648,
+      "status": "营业中",
+      "people": 18,
+      "capacity": 60
+    },
+    {
+      "id": "store-2",
+      "name": "FitSpace 高新店",
+      "shortName": "高新店",
+      "distance": "4.8km",
+      "address": "成都市高新区交子大道 233 号",
+      "hours": "06:00 - 24:00",
+      "phone": "028-88885555",
+      "wechat": "FitSpace-GX",
+      "latitude": 30.5756,
+      "longitude": 104.0678,
+      "status": "营业中",
+      "people": 31,
+      "capacity": 80
+    },
+    {
+      "id": "store-3",
+      "name": "FitSpace 锦江店",
+      "shortName": "锦江店",
+      "distance": "7.1km",
+      "address": "成都市锦江区红星路三段 99 号",
+      "hours": "07:00 - 23:30",
+      "phone": "028-88887777",
+      "wechat": "FitSpace-JJ",
+      "latitude": 30.6512,
+      "longitude": 104.0838,
+      "status": "营业中",
+      "people": 12,
+      "capacity": 50
+    }
+  ],
+  "cards": [
+    {
+      "id": "card-trial",
+      "name": "7 日新客体验卡",
+      "price": 39,
+      "originalPrice": 99,
+      "badge": "新客专享",
+      "tone": "mint",
+      "desc": "连续 7 天不限次进场，含体测 1 次",
+      "validity": "购买后 30 天内激活",
+      "enabled": true
+    },
+    {
+      "id": "card-month",
+      "name": "单店月卡",
+      "price": 139,
+      "originalPrice": 199,
+      "badge": "人气推荐",
+      "tone": "orange",
+      "desc": "本店 30 天不限次训练",
+      "validity": "购买后立即生效",
+      "enabled": true
+    },
+    {
+      "id": "card-year",
+      "name": "全城年卡",
+      "price": 888,
+      "originalPrice": 1580,
+      "badge": "限时直降",
+      "tone": "dark",
+      "desc": "FitSpace 全部门店通用",
+      "validity": "365 天有效",
+      "enabled": true
+    }
+  ],
+  "projects": [
+    {
+      "id": "project-strength",
+      "icon": "力",
+      "name": "自由力量区",
+      "subtitle": "增肌塑形",
+      "desc": "深蹲架、史密斯机、哑铃与综合训练架，满足进阶力量训练。"
+    },
+    {
+      "id": "project-cardio",
+      "icon": "燃",
+      "name": "心肺有氧区",
+      "subtitle": "高效燃脂",
+      "desc": "跑步机、椭圆机、划船机与登山机，适合日常心肺训练。"
+    },
+    {
+      "id": "project-group",
+      "icon": "团",
+      "name": "小团体课程",
+      "subtitle": "一起更有趣",
+      "desc": "燃脂搏击、瑜伽、普拉提等精品小团课，每班最多 12 人。"
+    },
+    {
+      "id": "project-private",
+      "icon": "教",
+      "name": "一对一私教",
+      "subtitle": "定制计划",
+      "desc": "根据体测和目标制定专属计划，持续跟踪训练成果。"
+    }
+  ],
+  "coaches": [
+    {
+      "id": "coach-1",
+      "name": "Candy",
+      "initials": "CY",
+      "title": "体态塑形教练",
+      "years": 6,
+      "price": 240,
+      "likes": 128,
+      "color": "#ff8a5c",
+      "tags": [
+        "塑形",
+        "体态",
+        "产后恢复"
+      ],
+      "intro": "ACE 认证教练，擅长用可持续的训练帮助学员改善体态。",
+      "result": "帮助 60+ 位学员完成体态改善，其中 18 位在 12 周内腰围减少 8cm 以上。",
+      "achievements": [
+        "ACE-CPT 认证",
+        "普拉提大器械认证",
+        "年度学员好评教练"
+      ],
+      "enabled": true
+    },
+    {
+      "id": "coach-2",
+      "name": "阿杰",
+      "initials": "AJ",
+      "title": "增肌减脂教练",
+      "years": 10,
+      "price": 288,
+      "likes": 203,
+      "color": "#1d6d4d",
+      "tags": [
+        "增肌",
+        "减脂",
+        "拉伸"
+      ],
+      "intro": "十年训练与带课经验，重视动作质量和阶段性复盘。",
+      "result": "累计服务 150+ 位学员，学员平均 8 周体脂率下降 3.8%。",
+      "achievements": [
+        "NSCA-CPT 认证",
+        "运动营养师",
+        "健美公开赛男子组前三"
+      ],
+      "enabled": true
+    },
+    {
+      "id": "coach-3",
+      "name": "Mia",
+      "initials": "MI",
+      "title": "瑜伽普拉提教练",
+      "years": 5,
+      "price": 220,
+      "likes": 96,
+      "color": "#7d67a8",
+      "tags": [
+        "瑜伽",
+        "普拉提",
+        "肩颈"
+      ],
+      "intro": "关注呼吸、核心和关节活动度，让训练回归舒适与稳定。",
+      "result": "已完成 1200+ 节课程，长期学员续课率 86%。",
+      "achievements": [
+        "RYT-500",
+        "普拉提垫上认证",
+        "功能性拉伸认证"
+      ],
+      "enabled": true
+    }
+  ],
+  "equipment": [
+    {
+      "id": "eq-1",
+      "name": "跑步机",
+      "count": 12,
+      "status": "空闲 8 台",
+      "icon": "跑",
+      "tips": "使用前夹好安全扣，循序增加速度。"
+    },
+    {
+      "id": "eq-2",
+      "name": "椭圆机",
+      "count": 6,
+      "status": "空闲 4 台",
+      "icon": "氧",
+      "tips": "保持核心稳定，脚掌贴合踏板。"
+    },
+    {
+      "id": "eq-3",
+      "name": "史密斯机",
+      "count": 3,
+      "status": "空闲 1 台",
+      "icon": "杠",
+      "tips": "训练前确认安全挂钩与限位器位置。"
+    },
+    {
+      "id": "eq-4",
+      "name": "综合训练架",
+      "count": 4,
+      "status": "空闲 3 台",
+      "icon": "综",
+      "tips": "调整插销后先轻重量试拉。"
+    },
+    {
+      "id": "eq-5",
+      "name": "哑铃区",
+      "count": 1,
+      "status": "正常开放",
+      "icon": "铃",
+      "tips": "使用后请按重量归位。"
+    },
+    {
+      "id": "eq-6",
+      "name": "划船机",
+      "count": 4,
+      "status": "空闲 4 台",
+      "icon": "划",
+      "tips": "先蹬腿、再后仰、最后拉手柄。"
+    }
+  ],
+  "classes": [
+    {
+      "id": "class-1",
+      "name": "燃脂搏击",
+      "coach": "阿杰",
+      "time": "今天 19:30",
+      "duration": "50 分钟",
+      "left": 3,
+      "level": "全级别",
+      "enabled": true
+    },
+    {
+      "id": "class-2",
+      "name": "流瑜伽",
+      "coach": "Mia",
+      "time": "明天 10:00",
+      "duration": "60 分钟",
+      "left": 6,
+      "level": "初级",
+      "enabled": true
+    },
+    {
+      "id": "class-3",
+      "name": "核心普拉提",
+      "coach": "Candy",
+      "time": "周日 15:00",
+      "duration": "50 分钟",
+      "left": 2,
+      "level": "中级",
+      "enabled": true
+    },
+    {
+      "id": "class-4",
+      "name": "杠铃塑形",
+      "coach": "阿杰",
+      "time": "周一 20:00",
+      "duration": "45 分钟",
+      "left": 8,
+      "level": "全级别",
+      "enabled": true
+    }
+  ],
+  "energyGoods": [
+    {
+      "id": "goods-1",
+      "name": "蛋白能量棒",
+      "energy": 180,
+      "icon": "棒",
+      "stock": 24,
+      "enabled": true
+    },
+    {
+      "id": "goods-2",
+      "name": "运动毛巾",
+      "energy": 360,
+      "icon": "巾",
+      "stock": 12,
+      "enabled": true
+    },
+    {
+      "id": "goods-3",
+      "name": "摇摇杯",
+      "energy": 520,
+      "icon": "杯",
+      "stock": 8,
+      "enabled": true
+    },
+    {
+      "id": "goods-4",
+      "name": "私教体验课",
+      "energy": 1200,
+      "icon": "课",
+      "stock": 5,
+      "enabled": true
+    }
+  ]
+}

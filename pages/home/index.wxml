@@ -1,0 +1,169 @@
+<view class="home-page">
+  <view class="hero-shell">
+    <view class="top-safe"></view>
+    <view class="topbar">
+      <view>
+        <text class="brand">FITSPACE</text>
+        <text class="brand-sub">TRAIN ANYTIME</text>
+      </view>
+      <view class="store-switch" bindtap="navigate" data-url="/pages/stores/index">
+        <text class="store-dot"></text>
+        <text>{{store.shortName}}</text>
+        <text class="chevron">⌄</text>
+      </view>
+    </view>
+
+    <swiper class="banner-swiper" indicator-dots autoplay circular interval="4200" indicator-color="rgba(255,255,255,.35)" indicator-active-color="#ffffff">
+      <swiper-item wx:for="{{banners}}" wx:key="id">
+        <view class="banner banner-{{item.tone}}" bindtap="navigate" data-url="{{item.url}}">
+          <view class="banner-orbit orbit-one"></view>
+          <view class="banner-orbit orbit-two"></view>
+          <view class="banner-copy">
+            <text class="banner-eyebrow">{{item.eyebrow}}</text>
+            <text class="banner-title">{{item.title}}</text>
+            <text class="banner-desc">{{item.desc}}</text>
+            <view class="banner-action">{{item.action}} →</view>
+          </view>
+          <view class="banner-person">
+            <view class="person-head"></view>
+            <view class="person-body"></view>
+            <view class="person-weight">━</view>
+          </view>
+        </view>
+      </swiper-item>
+    </swiper>
+  </view>
+
+  <view class="content">
+    <view class="store-card card">
+      <view class="store-card-head">
+        <view>
+          <view class="open-line"><text class="open-dot"></text>{{store.status}} · {{store.hours}}</view>
+          <view class="store-name">{{store.name}}</view>
+        </view>
+        <button class="switch-btn" bindtap="navigate" data-url="/pages/stores/index">切换门店</button>
+      </view>
+      <view class="store-tags">
+        <text class="tag">无推销</text>
+        <text class="tag">月付制</text>
+        <text class="tag">免费淋浴</text>
+        <text class="tag">智能门禁</text>
+      </view>
+      <view class="address-row">
+        <view class="address-copy">
+          <text class="address">{{store.address}}</text>
+          <text class="distance">距你 {{store.distance}}</text>
+        </view>
+        <view class="contact-btn" bindtap="copyWechat">微</view>
+        <view class="contact-btn phone" bindtap="callStore">☎</view>
+      </view>
+    </view>
+
+    <view class="quick-grid card">
+      <view class="quick-item" wx:for="{{quickActions}}" wx:key="name" bindtap="navigate" data-url="{{item.url}}">
+        <view class="quick-icon">{{item.icon}}</view>
+        <view>
+          <view class="quick-name">{{item.name}}</view>
+          <view class="quick-desc">{{item.desc}}</view>
+        </view>
+      </view>
+    </view>
+
+    <view class="promo-grid">
+      <view class="promo-card visit" bindtap="navigate" data-url="/pages/visit-pass/index">
+        <text class="promo-tag">新客专享</text>
+        <text class="promo-title">参观票 ¥25.8</text>
+        <text class="promo-desc">15 分钟内离场自动退</text>
+        <text class="promo-arrow">→</text>
+      </view>
+      <view class="promo-card verify" bindtap="navigate" data-url="/pages/verify/index">
+        <text class="promo-tag">便捷核销</text>
+        <text class="promo-title">团购核销</text>
+        <text class="promo-desc">抖音 / 美团券码</text>
+        <text class="promo-arrow">→</text>
+      </view>
+    </view>
+
+    <view class="section">
+      <view class="section-head">
+        <text class="section-title">会员卡</text>
+        <text class="section-more" bindtap="navigate" data-url="/pages/cards/index">全部会员卡 →</text>
+      </view>
+      <scroll-view class="card-scroll" scroll-x enhanced show-scrollbar="{{false}}">
+        <view class="sale-card sale-{{item.tone}}" wx:for="{{cards}}" wx:key="id" bindtap="navigate" data-url="/pages/cards/index">
+          <text class="sale-badge">{{item.badge}}</text>
+          <text class="sale-name">{{item.name}}</text>
+          <view><text class="sale-yen">¥</text><text class="sale-price">{{item.price}}</text></view>
+          <text class="sale-original">¥{{item.originalPrice}}</text>
+          <text class="sale-buy">立即购买</text>
+        </view>
+      </scroll-view>
+    </view>
+
+    <view class="section">
+      <view class="section-head">
+        <text class="section-title">训练项目</text>
+        <text class="section-more" bindtap="navigate" data-url="/pages/feature/index?type=project">查看介绍 →</text>
+      </view>
+      <view class="project-grid">
+        <view class="project-card card" wx:for="{{projects}}" wx:key="id" bindtap="navigate" data-url="/pages/feature/index?type=project">
+          <view class="project-icon">{{item.icon}}</view>
+          <view class="project-name">{{item.name}}</view>
+          <view class="project-sub">{{item.subtitle}}</view>
+        </view>
+      </view>
+    </view>
+
+    <view class="section">
+      <view class="section-head">
+        <text class="section-title">明星教练</text>
+        <text class="section-more" bindtap="navigate" data-url="/pages/coaches/index">全部教练 →</text>
+      </view>
+      <scroll-view class="coach-scroll" scroll-x enhanced show-scrollbar="{{false}}">
+        <view class="coach-card card" wx:for="{{coaches}}" wx:key="id">
+          <view class="coach-avatar" style="background: {{item.color}}" bindtap="navigate" data-url="/pages/coach-detail/index?id={{item.id}}">
+            <text>{{item.initials}}</text>
+            <view class="coach-year">{{item.years}} 年经验</view>
+          </view>
+          <view class="coach-info" bindtap="navigate" data-url="/pages/coach-detail/index?id={{item.id}}">
+            <view class="coach-name">{{item.name}}</view>
+            <view class="coach-title">{{item.title}}</view>
+            <view class="coach-price"><text>¥{{item.price}}</text>/小时</view>
+          </view>
+          <view class="like-btn {{item.liked ? 'liked' : ''}}" catchtap="likeCoach" data-id="{{item.id}}">{{item.liked ? '♥' : '♡'}} {{item.likes + (item.liked ? 1 : 0)}}</view>
+        </view>
+      </scroll-view>
+    </view>
+
+    <view class="section">
+      <view class="section-head">
+        <view>
+          <text class="section-title">场内实况</text>
+          <text class="live-chip">● LIVE</text>
+        </view>
+        <text class="section-more" bindtap="navigate" data-url="/pages/live/index">查看全部 →</text>
+      </view>
+      <view class="live-card card" bindtap="navigate" data-url="/pages/live/index">
+        <view class="camera-scene">
+          <view class="camera-grid"></view>
+          <view class="machine machine-one"></view>
+          <view class="machine machine-two"></view>
+          <view class="machine machine-three"></view>
+          <view class="camera-label">力量训练区 · 实时画面</view>
+        </view>
+        <view class="live-meta">
+          <view>
+            <view class="live-count"><text>{{store.people}}</text> / {{store.capacity}} 人</view>
+            <view class="muted">当前场内人数</view>
+          </view>
+          <view class="occupancy-wrap">
+            <view class="occupancy-head"><text>舒适度</text><text>{{occupancy}}%</text></view>
+            <view class="occupancy-track"><view class="occupancy-bar" style="width: {{occupancy}}%"></view></view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <bottom-nav active="home"></bottom-nav>
+</view>

@@ -1,0 +1,13 @@
+<view class="bottom-nav">
+  <view class="nav-item {{active === 'home' ? 'active' : ''}}" data-target="home" bindtap="go">
+    <view class="nav-icon">⌂</view>
+    <text>首页</text>
+  </view>
+  <view class="nav-center" bindtap="go" data-target="home">
+    <view class="brand-mark">F</view>
+  </view>
+  <view class="nav-item {{active === 'mine' ? 'active' : ''}}" data-target="mine" bindtap="go">
+    <view class="nav-icon">◉</view>
+    <text>我的</text>
+  </view>
+</view>

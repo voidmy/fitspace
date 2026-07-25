@@ -1,0 +1,138 @@
+.cards-page {
+  padding-bottom: 48rpx;
+}
+
+.cards-hero {
+  display: flex;
+  flex-direction: column;
+  min-height: 260rpx;
+  padding: 42rpx 32rpx;
+  border-radius: 36rpx;
+  background:
+    radial-gradient(circle at 90% 20%, rgba(99, 225, 158, 0.22), transparent 28%),
+    #0b1713;
+  color: #ffffff;
+}
+
+.hero-label {
+  color: #64a488;
+  font-size: 17rpx;
+  letter-spacing: 5rpx;
+}
+
+.hero-title {
+  width: 500rpx;
+  margin-top: 30rpx;
+  font-size: 42rpx;
+  font-weight: 800;
+  line-height: 1.32;
+}
+
+.hero-desc {
+  margin-top: 18rpx;
+  color: #91a29b;
+  font-size: 21rpx;
+}
+
+.products {
+  margin-top: 22rpx;
+}
+
+.product {
+  min-height: 300rpx;
+  margin-bottom: 18rpx;
+  padding: 28rpx;
+}
+
+.product-mint {
+  background: linear-gradient(135deg, #e7f7ee, #ffffff 75%);
+}
+
+.product-orange {
+  background: linear-gradient(135deg, #fff0e5, #ffffff 75%);
+}
+
+.product-dark {
+  background: linear-gradient(135deg, #243c32, #0b1713);
+  color: #ffffff;
+}
+
+.product-head,
+.product-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.product-badge {
+  padding: 8rpx 14rpx;
+  border-radius: 999rpx;
+  background: rgba(255, 107, 53, 0.13);
+  color: #ed632f;
+  font-size: 19rpx;
+}
+
+.product-validity {
+  color: #8d9792;
+  font-size: 19rpx;
+}
+
+.product-name,
+.product-desc {
+  display: block;
+}
+
+.product-name {
+  margin-top: 28rpx;
+  font-size: 35rpx;
+  font-weight: 780;
+}
+
+.product-desc {
+  margin-top: 10rpx;
+  color: #7f8b85;
+  font-size: 21rpx;
+}
+
+.product-bottom {
+  margin-top: 34rpx;
+}
+
+.yen {
+  font-size: 24rpx;
+}
+
+.product-price {
+  font-size: 52rpx;
+  font-weight: 850;
+}
+
+.original {
+  margin-left: 10rpx;
+  color: #939d98;
+  font-size: 20rpx;
+  text-decoration: line-through;
+}
+
+.buy-btn {
+  height: 68rpx;
+  padding: 0 25rpx;
+  background: #ff6b35;
+  color: #ffffff;
+  font-size: 22rpx;
+  font-weight: 700;
+}
+
+.notice {
+  padding: 26rpx;
+  color: #7d8983;
+  font-size: 21rpx;
+  line-height: 1.9;
+}
+
+.notice-title {
+  margin-bottom: 8rpx;
+  color: #22342d;
+  font-size: 27rpx;
+  font-weight: 730;
+}

@@ -1,0 +1,38 @@
+<view class="page coaches-page">
+  <view class="coaches-hero">
+    <text class="hero-label">OUR COACHES</text>
+    <text class="hero-title">专业教练，陪你看见改变</text>
+    <text class="hero-desc">认证资质 · 真实成果 · 学员推荐</text>
+  </view>
+
+  <scroll-view class="filters" scroll-x show-scrollbar="{{false}}">
+    <view class="filter {{filter === item ? 'active' : ''}}" wx:for="{{filters}}" wx:key="*this" bindtap="chooseFilter" data-filter="{{item}}">{{item}}</view>
+  </scroll-view>
+
+  <view class="coach-list">
+    <view class="coach-item card" wx:for="{{coaches}}" wx:key="id">
+      <view class="coach-visual" style="background: linear-gradient(145deg, {{item.color}}, #14251e)" bindtap="openCoach" data-id="{{item.id}}">
+        <text class="initials">{{item.initials}}</text>
+        <view class="experience">{{item.years}} 年经验</view>
+      </view>
+      <view class="coach-copy" bindtap="openCoach" data-id="{{item.id}}">
+        <view class="coach-name-row">
+          <view>
+            <text class="coach-name">{{item.name}}</text>
+            <text class="coach-title">{{item.title}}</text>
+          </view>
+          <text class="coach-price">¥{{item.price}}<text>/小时</text></text>
+        </view>
+        <view class="tags">
+          <text class="tag" wx:for="{{item.tags}}" wx:key="*this">{{item}}</text>
+        </view>
+        <view class="intro">{{item.intro}}</view>
+        <view class="result"><text>成果</text>{{item.result}}</view>
+      </view>
+      <view class="coach-actions">
+        <view>♡ {{item.likes + (item.liked ? 1 : 0)}} 人推荐</view>
+        <button class="{{item.followed ? 'followed' : ''}}" catchtap="follow" data-id="{{item.id}}">{{item.followed ? "已关注" : "+ 关注"}}</button>
+      </view>
+    </view>
+  </view>
+</view>

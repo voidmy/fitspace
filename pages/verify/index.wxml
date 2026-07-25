@@ -1,0 +1,37 @@
+<view class="page verify-page">
+  <view class="verify-hero">
+    <view class="scan-mark">
+      <view class="scan-line"></view>
+      <text>核</text>
+    </view>
+    <text class="verify-title">团购券快捷核销</text>
+    <text class="verify-desc">支持美团、抖音和大众点评券码</text>
+  </view>
+
+  <view class="verify-form card">
+    <view class="form-label">选择券来源</view>
+    <view class="source-row">
+      <view class="source-chip {{source === item ? 'active' : ''}}" wx:for="{{sources}}" wx:key="*this" bindtap="selectSource" data-source="{{item}}">{{item}}</view>
+    </view>
+    <view class="form-label code-label">输入团购券码</view>
+    <view class="code-input">
+      <input value="{{code}}" bindinput="inputCode" maxlength="32" placeholder="演示码：FIT2026" placeholder-class="placeholder" />
+      <view class="scan-btn" bindtap="scan">扫一扫</view>
+    </view>
+    <button class="primary-btn verify-btn" bindtap="verify">立即核销</button>
+  </view>
+
+  <view wx:if="{{result}}" class="result-card card {{result.success ? 'success' : 'failure'}}">
+    <view class="result-icon">{{result.success ? "✓" : "!"}}</view>
+    <view>
+      <view class="result-title">{{result.title}}</view>
+      <view class="result-message">{{result.message}}</view>
+      <view class="result-code">券码 {{result.code}}</view>
+    </view>
+  </view>
+
+  <view class="help-card card">
+    <view class="help-title">无法核销？</view>
+    <view class="help-desc">请确认券码未过期、未被使用，并选择正确的平台来源。正式版需连接各团购平台核销接口。</view>
+  </view>
+</view>
